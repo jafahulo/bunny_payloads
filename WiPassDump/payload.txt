@@ -1,23 +1,15 @@
 # Title: WiPassDump
-
 # Author: jafahulo -- Cred: samdeg555
-
 # Version: 2.0
-
 # Target: Windows
-
-
 #
-## Runs powershell
-
-## dumps cleartext passwords as .xml files to loot folder
-
+# Runs powershell script to dump clear text passwords to \loot\WiPassDump
+# Runs powershell script to remove "run" prompt history
 #
-# R Blinking..... Running
-#
-# Green..............Finished
-
-
+# Red Blinking..........Running
+# Blue Blinking.........Removing tracks
+# Green.................Finished
+###########################################################################################################################
 
 ATTACKMODE HID STORAGE
 
