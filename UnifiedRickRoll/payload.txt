@@ -1,6 +1,7 @@
 ATTACKMODE STORAGE HID VID_0X05AC PID_0X021E
 
-time=2332
+time=1734
+
 LED R 200
 
 Q GUI SPACE
@@ -12,11 +13,11 @@ Q DELAY 1000
 Q GUI n
 Q DELAY 1000
 
-Q STRING hi=0\; ho=\$\(date \'+%H%M\'\)\; while test \$hi == \'0\'\;  do    if [ \$ho == $time ]\;    then osascript -e \"set Volume 9\" \&\& open \"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" \;    hi=1\;    fi\;    ho=\$\(date \'+%H%M\'\)\;  done \& disown
+Q STRING hi=0\; ho=\$\(date \'+%H%M\'\)\; while test \$hi == \'0\'\;  do    if [ \$ho == $time ]\;    then osascript -e \"set Volume 9\" \&\& open \"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" \;    hi=1\;    fi\;    ho=\$\(date \'+%H%M\'\)\; sleep 1\; done \& disown
 
-Q DELAY 200
-#Q ENTER
-#Q GUI W
-#Q ENTER
+Q DELAY 1000
+Q ENTER
+Q GUI W
+Q ENTER
 
 LED G
